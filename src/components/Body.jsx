@@ -18,17 +18,13 @@ const Body = () => {
       const res = await axios.get(BASE_URL+"/profile", { withCredentials: true});
       dispatch(addUser(res.data))
 
-    } catch (error) {
+    } catch (e) {
       navitage("/login")
-      console.log(error)
+      console.error(e)
     }
   }
   useEffect(()=>{
-    
-  console.log("Not logged in ")
   fetchUser()
-
-
   }, []);
   return (
     <div>

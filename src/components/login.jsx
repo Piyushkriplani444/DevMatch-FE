@@ -7,8 +7,8 @@ import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
 
-    const [ emailId, setEmailId ] = useState("dhoni@gmail.com");
-    const [ password, setPassword ] = useState("Dhoni@123");
+    const [ emailId, setEmailId ] = useState("piyush@gmail.com");
+    const [ password, setPassword ] = useState("Piyush@123");
     const [ error , setError]  = useState("")
     const dispatch = useDispatch();
     const navitage = useNavigate();
@@ -16,12 +16,10 @@ const Login = () => {
     const handleLogin = async () =>{
         try {
         const result = await  axios.post( BASE_URL+"/login", { emailId, password }, { withCredentials: true})
-        console.log(result)
         dispatch(addUser(result.data))
         navitage("/")
         }catch(e){
             setError(e?.response?.data || "Something went wrong")
-            console.log(e)
         }
     }
 
