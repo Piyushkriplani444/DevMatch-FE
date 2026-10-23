@@ -11,7 +11,7 @@ function EditProfile({ user}) {
     const [ age, setAge ] = useState(user?.age);
     const [ gender, setGender ] = useState(user?.gender);
     const [about , setAbout ] = useState(user?.about);
-    const [ skills, setSkills]  = useState(user?.skills || [])
+    // const [ skills, setSkills]  = useState(user?.skills || [])
     const [photoUrl, setPhotoUrl ] = useState(user?.photoUrl)
     const dispatch = useDispatch()
     const [ error , setError]  = useState("")
@@ -20,7 +20,7 @@ function EditProfile({ user}) {
     const saveProfile = async() => {
         try {
             setError("")
-            const res = await axios.patch(BASE_URL+"/profile/edit" , { firstName, lastName, age, gender, about, photoUrl, skills }, { withCredentials: true})
+            const res = await axios.patch(BASE_URL+"/profile/edit" , { firstName, lastName, age, gender, about, photoUrl }, { withCredentials: true})
             dispatch(addUser(res.data.data))
             setShowToast(true)
             setTimeout(()=> setShowToast(false), 3000)
@@ -98,7 +98,7 @@ function EditProfile({ user}) {
         </div>
     </div>
     
-    <UserCard user={{ firstName, lastName, age, gender, about, photoUrl, skills }} />
+    <UserCard user={{ firstName, lastName, age, gender, about, photoUrl }} />
     </div>
     {showToast && 
         <div className="toast toast-top toast-center">
