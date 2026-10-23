@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
 import feedReducer from "./feedSlice"
 import connectionReducer from "./ConnectionSlice"
-
+import requestReducer from './RequestSlice'
  
 const appStore = configureStore(
  {
@@ -10,6 +10,7 @@ const appStore = configureStore(
         user: userReducer,
         feed: feedReducer,
         connections: connectionReducer,
+        requests: requestReducer,
     }
  }
 )
