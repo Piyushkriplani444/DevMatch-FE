@@ -22,7 +22,7 @@ function Connections() {
     }, []);
 
     if(!connections) return
-    if(connections.length ===0 ) return <h1>No connection found</h1>
+    if(connections.length ===0 ) return <h1 className="flex justify-center my-10">No connection found</h1>
     
     return (
         <div className="text-center my-10">
@@ -33,7 +33,7 @@ function Connections() {
             return (
             <div className=" flex  m-4 p-4 border rounded-lg bg-base-300 w-1/2 mx-auto">
              <div>
-                <img alt="photo " src={photoUrl} className="w-20 h-20  rounded-full"/>
+                <img alt="photo " src={photoUrl} className="w-20 h-20  rounded-full object-contain"/>
              </div>
              <div className="text-left mx-10">
                 <h2 className="font-bold text-xl">{firstName + " " + lastName}</h2>
